@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get CRUDCRUD</title>
+    <title>Get CRUD</title>
 </head>
 <style>
     table,
@@ -13,6 +13,27 @@
         border: 1px solid black;
         border-collapse: collapse;
     }
+
+    .btn-edit{
+    background: orange;
+    outline: none;
+    border: none;
+    height: 25px;
+    width: 60px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+    
+    .btn-delete{
+    background: #cf203a;
+    outline: none;
+    border: none;
+    height: 25px;
+    width: 60px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+    
 </style>
 
 <body>
@@ -22,6 +43,8 @@
             <th>Firstname</th>
             <th>LastName</th>
             <th>Address</th>
+            <th>Actions</th>
+            
         </tr>
 
         <% for(var i=0; i < dataTable.length; i++) { %>
@@ -37,6 +60,11 @@
                 </td>
                 <td>
                     <%= dataTable[i].address %>
+                </td>
+                <td>
+                    <a href="/edit-crud?id=<%=dataTable[i].id%>" class="btn-edit" type="button">Edit</button>
+                    <a class="btn-delete" type="button">Delete</button>
+
                 </td>
             </tr>
             <% } %>
