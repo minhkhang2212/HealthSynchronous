@@ -26,28 +26,68 @@
     color: white;
 }
 
-.btn-edit{
+.btn-edit {
     width: 50px;
     border: none;
     outline: none;
     background: transparent;
     color: orange;
 
-    &:hover{
+    &:hover {
         background-color: transparent !important;
-        color:orange  !important;
+        color: orange !important;
     }
 }
 
-.btn-delete{
+.btn-delete {
     width: 50px;
     border: none;
     outline: none;
     background: transparent;
     color: rgb(235, 15, 15);
 
-    &:hover{
+    &:hover {
         background-color: transparent !important;
-        color:rgb(235, 15, 15)  !important;
+        color: rgb(235, 15, 15) !important;
     }
+}
+
+.modal-user-container {
+    .modal-content {
+        .modal-header {
+            button {
+                background-color: transparent !important;
+                border: none;
+                color: white;
+                font-size: 27px;
+            }
+        }
+
+    }
+
+
+    .modal-user-body {
+        gap: 15px;
+        display: flex;
+        flex-wrap: wrap;
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            width: 49%;
+
+            &.max-width-input {
+                width: 100%;
+            }
+
+            input {
+                border-radius: 3px;
+                height: 30px;
+                border: 1px solid grey;
+                outline: none;
+                padding: 0 10px;
+            }
+        }
+    }
+
 }
