@@ -11,7 +11,7 @@ class ModalUser extends Component {
             email: '',
             password: '',
             firstName: '',
-            lastName:'',
+            lastName: '',
             address: '',
         }
     }
@@ -24,13 +24,42 @@ class ModalUser extends Component {
         this.props.toggleFromParent();
     }
 
-    handleOnChangeInput=(event,id)=>{
-        console.log('event 1',event.target.value,id)
+    handleOnChangeInput = (event, id) => {
+        // this.state[id] = event.target.value;
+        // this.setState({
+        //     ...this.state
+        // }) bad code 
+
+
+        let copyState = { ...this.state } // tao 1 object chua state;
+        copyState[id] = event.target.value;
+        this.setState({
+            ...copyState
+        })
+
+    }
+    checkValideInput=()=>{
+        let isValid=true;
+        let arrInput=['email','password','firstName','lastName','address'];
+        for(let i=0;i<arrInput.length;i++){
+            if(!this.state[arrInput[i]]){
+                isValid=false;
+                alert('missing parameter: '+ arrInput[i]);
+                break;
+            }
+        }
+        return isValid; 
+    }
+    handleAddNewUser = () => {
+        let isValid=this.checkValideInput();
+        if(isValid===true){
+            //call api
+            this.props.createNewUser(this.state)
+
+        }
     }
 
     render() {
-        console.log('check childd props', this.props)
-        console.log('check childd open modal', this.props.isOpen)
         return (
             <Modal
                 isOpen={this.props.isOpen}
@@ -45,33 +74,50 @@ class ModalUser extends Component {
                     <div className="modal-user-body">
                         <div className="input-container">
                             <label>Email</label>
-                            <input type="text" onChange={(event)=>{this.handleOnChangeInput(event,"email")}}/>
+                            <input type="text"
+                                onChange={(event) => { this.handleOnChangeInput(event, "email") }}
+                                value={this.state.email}
+                            />
                         </div>
 
                         <div className="input-container">
                             <label>Password</label>
-                            <input type="password" onChange={(event)=>{this.handleOnChangeInput(event,"password")}}/>
+                            <input type="password"
+                                onChange={(event) => { this.handleOnChangeInput(event, "password") }}
+                                value={this.state.password}
+                            />
                         </div>
 
                         <div className="input-container">
                             <label>First name</label>
-                            <input type="text" onChange={(event)=>{this.handleOnChangeInput(event,"firstName")}} />
+                            <input type="text"
+                                onChange={(event) => { this.handleOnChangeInput(event, "firstName") }}
+                                value={this.state.firstName}
+                            />
                         </div>
 
                         <div className="input-container">
                             <label>Last name</label>
-                            <input type="text" onChange={(event)=>{this.handleOnChangeInput(event,"lastName")}} />
+                            <input type="text"
+                                onChange={(event) => { this.handleOnChangeInput(event, "lastName") }}
+                                value={this.state.lastName}
+                            />
                         </div>
 
                         <div className="input-container max-width-input">
                             <label>Address</label>
-                            <input type="text" onChange={(event)=>{this.handleOnChangeInput(event,"address")}} />
+                            <input type="text"
+                                onChange={(event) => { this.handleOnChangeInput(event, "address") }}
+                                value={this.state.address}
+                            />
                         </div>
                     </div>
 
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" className="px-3" onClick={() => { this.toggle() }}>
+                    <Button color="primary"
+                        className="px-3"
+                        onClick={() => { this.handleAddNewUser() }}>
                         Add new
                     </Button>{' '}
                     <Button color="secondary" className="px-3" onClick={() => { this.toggle() }}>
