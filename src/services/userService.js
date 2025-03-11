@@ -119,24 +119,26 @@ let createNewUser = (data) => {
             if (check === true) {
                 resolve({
                     errCode: 1,
-                    message: `your email is already in used, please try another email!`
+                    errMessage: `your email is already in used, please try another email!`
                 });
+            } else {
+                let hashPasswordFromBcrypt = await hashUserPassword(data.password);
+                await db.User.create({
+                    email: data.email,
+                    password: hashPasswordFromBcrypt,
+                    firstName: data.firstName,
+                    lastName: data.lastName,
+                    address: data.address,
+                    phonenumber: data.phonenumber,
+                    gender: data.gender === '1' ? true : false,
+                    roleId: data.roleId,
+                })
+                resolve({
+                    errCode: 0,
+                    message: 'ok'
+                })
             }
-            let hashPasswordFromBcrypt = await hashUserPassword(data.password);
-            await db.User.create({
-                email: data.email,
-                password: hashPasswordFromBcrypt,
-                firstName: data.firstName,
-                lastName: data.lastName,
-                address: data.address,
-                phonenumber: data.phonenumber,
-                gender: data.gender === '1' ? true : false,
-                roleId: data.roleId,
-            })
-            resolve({
-                errCode: 0,
-                message: 'ok'
-            })
+
 
         } catch (e) {
             reject(e)
@@ -168,33 +170,33 @@ let deleteUser = (userId) => {
     })
 }
 let updateUserData = (data) => {
-    return new Promise(async(resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         try {
-            if(!data.id){
+            if (!data.id) {
                 resolve({
-                    errCode:2,
+                    errCode: 2,
                     errMessage: 'Missing required parameters'
                 })
             }
             let user = await db.User.findOne({
                 where: { id: data.id },
-                raw:false
+                raw: false
             })
             if (user) {
-                user.firstName= data.firstName;
-                user.lastName=data.lastName;
-                user.address=data.address;
+                user.firstName = data.firstName;
+                user.lastName = data.lastName;
+                user.address = data.address;
 
                 await user.save();
 
                 resolve({
-                    errCode:0,
-                    message:'Update the user succeeds!'
+                    errCode: 0,
+                    message: 'Update the user succeeds!'
                 })
             } else {
                 resolve({
-                    errCode:1,
-                    errMessage:`User's not found!`
+                    errCode: 1,
+                    errMessage: `User's not found!`
                 });
             }
         } catch (e) {
@@ -203,10 +205,35 @@ let updateUserData = (data) => {
     })
 }
 
+let getAllCodeService = (typeInput) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            if (!typeInput) {
+                resolve({
+                    errCode: 1,
+                    errMessage: 'Missing required parameters !'
+                })
+            } else {
+                let res = {};
+                let allcode = await db.Allcode.findAll({
+                    where: { type: typeInput }
+                });
+                res.errCode = 0;
+                res.data = allcode;
+                resolve(res);
+            }
+
+
+        } catch (e) {
+            reject(e);
+        }
+    })
+}
 module.exports = {
     handleUserLogin: handleUserLogin,
     getAllUsers: getAllUsers,
     createNewUser: createNewUser,
     deleteUser: deleteUser,
-    updateUserData: updateUserData
+    updateUserData: updateUserData,
+    getAllCodeService: getAllCodeService
 }
