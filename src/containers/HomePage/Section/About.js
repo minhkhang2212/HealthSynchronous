@@ -15,10 +15,10 @@ class About extends Component {
                     <div className="content-left">
                         <iframe width="100%" height="400px"
                             src="https://www.youtube.com/embed/0sG1B4uZSRQ"
-                            title="Sound Trek Project Demo ReactJS" frameborder="0"
+                            title="Sound Trek Project Demo ReactJS" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
+                            referrerPolicy="strict-origin-when-cross-origin"
+                            allowFullScreen>
                         </iframe>
                     </div>
                     <div className="content-right">
