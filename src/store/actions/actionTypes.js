@@ -13,6 +13,12 @@ const actionTypes = Object.freeze({
     PROCESS_LOGOUT: 'PROCESS_LOGOUT',
     PROCESS_LOGOUT: 'PROCESS_LOGOUT',
 
+    //admin
+    FETCH_GENDER_START: 'FETCH_GENDER_START',
+    FETCH_GENDER_SUCCESS: 'FETCH_GENDER_SUCCESS',
+    FETCH_GENDER_FAILED: 'FETCH_GENDER_FAILED'
+
+
 })
 
 export default actionTypes;
