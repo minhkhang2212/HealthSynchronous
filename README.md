@@ -1,68 +1,85 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 👨‍⚕️ HealthSync (Fullstack Nodejs + React)
 
-## Available Scripts
+## 📖 Overview
+HealthSync is a **medical appointment booking system** that allows patients to easily book appointments with doctors and healthcare facilities.  
+It streamlines the process of **booking, confirming, and managing medical appointments**.  
 
-In the project directory, you can run:
+The system aims to optimize appointment scheduling, **reduce waiting times**, and **improve efficiency** for both patients and medical staff.  
+## 📹 YouTube Demo (Click the Photo)
+---
+[![Homepage](https://github.com/minhkhang2212/HealthSynchronous/blob/frontend/images/Homepage.png)]([https://youtu.be/YZal1JP-Rnk?si=GIwEla0BiDrQnX3U](https://youtu.be/WWOpJ3oDTGo?si=8AcfbfA68Q8_9fhJ))
+---
 
-### `npm start`
+---
+## 🔄 Workflow  
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Patient submits a booking request.  
+2. Supporter reviews the request → confirms or rejects.  
+3. If confirmed → appointment is assigned to the **Doctor**.  
+4. Doctor sees the schedule, meets patients, and issues invoice.
+---
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## 🚀 Features  
 
-### `npm test`
+**Patient**  
+- Find doctors, clinics, specialists to book medical appointments online.
+![Homepage](https://github.com/minhkhang2212/HealthSynchronous/blob/frontend/images/book.png)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Receive email reminders and manage personal appointments.
+ ![Email](https://github.com/minhkhang2212/HealthSynchronous/blob/frontend/images/email%20from%20system.png)
 
-### `npm run build`
+- Send feedback to doctors.
+ ![Feedback](https://github.com/minhkhang2212/HealthSynchronous/blob/frontend/images/feedback.png)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Supporter**  
+- Receive new booking requests.
+   ![Request](https://github.com/minhkhang2212/HealthSynchronous/blob/frontend/images/supporter.png)
+  
+- Confirm or reject appointments before assigning them to doctors.  
+![Request](https://github.com/minhkhang2212/HealthSynchronous/blob/frontend/images/email%20from%20supporter.png)
+  
+**Doctor**  
+- View confirmed appointments and manage schedules and appointment statuses.
+  ![Request](https://github.com/minhkhang2212/HealthSynchronous/blob/frontend/images/doctor.png)
+  
+- Send invoices after completing the appointment.
+ ![Request](https://github.com/minhkhang2212/HealthSynchronous/blob/frontend/images/doctor%20send%20invoice.png)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+**Admin**  
+- Manage users (patients, supporters, doctors).
+   ![Request](https://github.com/minhkhang2212/HealthSynchronous/blob/frontend/images/admin.png)
+  
+- Monitor system activities.
+   ![Request](https://github.com/minhkhang2212/HealthSynchronous/blob/frontend/images/admin%20permission.png)
+  
+- Manage doctor’s schedules and appointment statuses.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**System**  
+- Authentication and role-based access (patients, doctors, admins).
+     ![Request](https://github.com/minhkhang2212/HealthSynchronous/blob/frontend/images/Login.png)
+  
+- Automated emails to remind patients’ schedules.
 
-### `npm run eject`
+---
+## 🛠 Tech Stack  
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **Frontend:** React.js, SCSS, Bootstrap  
+- **Backend:** Node.js (Express)  
+- **Database:** MySQL  
+- **Tools:** XAMPP, Koala, NodeMailer  
+---
+## Other Screenshots
+**Specialists and clinics**
+ ![Request](https://github.com/minhkhang2212/HealthSynchronous/blob/frontend/images/specialists%20and%20clinics.png)
+ 
+ **Searching**
+ ![Request](https://github.com/minhkhang2212/HealthSynchronous/blob/frontend/images/search.png)
+ 
+**Filling form**
+  ![Request](https://github.com/minhkhang2212/HealthSynchronous/blob/frontend/images/booking%20form.png)
+  
+  **Actors (According to Database)**
+   ![Request](https://github.com/minhkhang2212/HealthSynchronous/blob/frontend/images/actor.png)
+  
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
